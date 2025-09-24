@@ -1,0 +1,5 @@
+module.exports = {
+  env: {
+    BACKEND_API_URL: 'http://localhost:3000', // Backend API URL
+  },
+};

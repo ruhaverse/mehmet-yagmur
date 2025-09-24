@@ -1,7 +1,6 @@
 # Mehmet Yagmur Backend Infrastructure
 
 ## Overview
-
 This repository contains the backend infrastructure for the Mehmet Yagmur project. It is designed to be modular, scalable, and easy to extend. The current setup includes the following components:
 
 - **PostgreSQL**: For structured data.
@@ -11,49 +10,38 @@ This repository contains the backend infrastructure for the Mehmet Yagmur projec
 - **API Gateway**: To route requests to the appropriate microservices.
 
 ## Project Structure
-
-```plaintext
+```
 mehmet-yagmur/
 ├── docker-compose.yml       # Docker Compose file to manage services
 ├── api-gateway/             # API Gateway configuration
 │   └── config.json          # Routes for microservices
-├── auth-service/            # Handles user authentication and authorization
-├── user-service/            # Manages user profiles and related data
-├── post-service/            # Handles user posts and interactions
-├── feed-service/            # Generates and serves user feeds
-├── media-service/           # Manages media uploads and storage
-├── notification-service/    # Sends notifications to users
 ├── README.md                # Project documentation
 └── ... (other microservices and configurations)
 ```
 
-## Prerequisites
+## Getting Started
 
+### Prerequisites
 - Docker and Docker Compose installed on your machine.
 
-## Setup
-
+### Setup
 1. Clone the repository:
-
    ```bash
    git clone https://github.com/ruhaverse/mehmet-yagmur.git
    cd mehmet-yagmur
    ```
 
 2. Start all services using Docker Compose:
-
    ```bash
    docker-compose up -d
    ```
 
 3. Verify that all services are running:
-
    ```bash
    docker ps
    ```
 
-## API Gateway Routes
-
+### API Gateway Routes
 The API Gateway routes requests to the following microservices:
 
 | Path            | Target Service            |
@@ -66,18 +54,15 @@ The API Gateway routes requests to the following microservices:
 | `/notification` | `notification-service:3006`|
 
 ## Future Enhancements
-
 - **Elasticsearch**: For advanced search capabilities.
 - **Cassandra**: For distributed data management.
 - **InfluxDB**: For time-series data.
 - **GraphQL**: To simplify API queries.
 
 ## Contribution Guidelines
-
 - Follow the established coding standards.
 - Commit only source files; avoid committing `node_modules` or other generated files.
 - Use `.env` files for environment-specific configurations.
 
 ## Contact
-
 For any questions or issues, please contact the repository maintainer.
