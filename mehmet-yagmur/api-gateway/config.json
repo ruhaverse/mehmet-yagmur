@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "path": "/auth",
+      "target": "http://auth-service:3001"
+    },
+    {
+      "path": "/user",
+      "target": "http://user-service:3002"
+    },
+    {
+      "path": "/post",
+      "target": "http://post-service:3003"
+    },
+    {
+      "path": "/feed",
+      "target": "http://feed-service:3004"
+    },
+    {
+      "path": "/media",
+      "target": "http://media-service:3005"
+    },
+    {
+      "path": "/notification",
+      "target": "http://notification-service:3006"
+    }
+  ]
+}
