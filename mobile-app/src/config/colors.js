@@ -15,4 +15,7 @@ export default {
   whiteWithOpacity: "rgba(0, 0, 0, 0.31)",
   linearGradientIndex0: "rgba(144, 57, 204, 1)",
   linearGradientIndex1: "rgba(22, 3, 144, 0.63)",
+  primary: '#4CAF50',
+  secondary: '#FF5722',
+  black: '#000000',
 };
