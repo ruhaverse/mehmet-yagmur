@@ -9,7 +9,7 @@ import { StatusBar, StyleSheet, Text, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/LoginScreen.js';
 import HomeScreen from './src/screens/HomeScreen.js';
 import AppForm from './app/components/forms/Form.js';
@@ -34,7 +34,7 @@ import store from './redux/store.js';
 import * as Sentry from '@sentry/react-native';
 import axios from 'axios';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 Sentry.init({
   dsn: 'https://your-dsn-url@sentry.io/project-id',

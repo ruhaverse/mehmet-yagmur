@@ -12,7 +12,7 @@ This repository contains the backend infrastructure for the Mehmet Yagmur projec
 
 ## Project Structure
 
-```
+```bash
 mehmet-yagmur/
 ├── docker-compose.yml       # Docker Compose file to manage services
 ├── api-gateway/             # API Gateway configuration

@@ -10,6 +10,7 @@
     "moduleResolution": "node16",
     "target": "es6",
     "module": "Node16",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"]
   }
 }
