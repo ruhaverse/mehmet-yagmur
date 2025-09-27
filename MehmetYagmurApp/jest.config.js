@@ -18,4 +18,5 @@ module.exports = {
     '^react-native$': 'react-native-web',
     '^.+\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
+  testMatch: ['**/__tests__/**/*.test.(js|jsx|ts|tsx)'],
 };
