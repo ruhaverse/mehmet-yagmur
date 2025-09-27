@@ -31,8 +31,14 @@ import ReelPlayerScreen from './screens/ReelPlayerScreen.tsx';
 import SwapScreen from './screens/SwapScreen.tsx';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
+import * as Sentry from '@sentry/react-native';
 
 const Stack = createStackNavigator();
+
+Sentry.init({
+  dsn: 'https://your-dsn-url@sentry.io/project-id',
+  tracesSampleRate: 1.0,
+});
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
