@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import NewsFeedNavigator from './NewsFeedNavigator';
-import GroupNavigator from './GroupNavigator';
-import AuthNavigator from './AuthNavigator';
+import NewsFeedNavigator from './NewsFeedNavigator.js';
+import GroupNavigator from './GroupNavigator.js';
+import AuthNavigator from './AuthNavigator.js';
 
 const Tab = createBottomTabNavigator();
 

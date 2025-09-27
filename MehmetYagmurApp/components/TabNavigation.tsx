@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function TabNavigation({ tabs }: { tabs: { name: string; component: JSX.Element }[] }) {
+export default function TabNavigation({ tabs }: { tabs: { name: string; component: React.ReactNode }[] }) {
   const [activeTab, setActiveTab] = useState(tabs[0].name);
 
   return (

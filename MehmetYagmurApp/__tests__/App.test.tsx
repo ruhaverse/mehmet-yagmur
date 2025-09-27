@@ -11,5 +11,5 @@ test('renders correctly', async () => {
   await ReactTestRenderer.act(() => {
     tree = ReactTestRenderer.create(<App />);
   });
-  expect(tree?.toJSON()).toMatchSnapshot();
+  expect(tree?.toJSON?.()).toMatchSnapshot();
 });
