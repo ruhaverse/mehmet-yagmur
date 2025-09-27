@@ -78,10 +78,10 @@ const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
 
     return (
       <GestureDetector gesture={gesture}>
-        <Animated.View style={[styles.bottomSheetContainer, rBottomSheetStyle]}>
+        <View style={[styles.bottomSheetContainer, rBottomSheetStyle]}>
           <View style={styles.line} />
           {children}
-        </Animated.View>
+        </View>
       </GestureDetector>
     );
   }
