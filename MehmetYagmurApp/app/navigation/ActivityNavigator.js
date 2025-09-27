@@ -55,11 +55,11 @@ export default function ActivityNavigation(props) {
         }}
       />
       <Stack.Screen
-      name={routes.USER_PROFILE}
-      component = {UserProfileScreen}
-      options={{
-        headerShown:false,
-      }}
+        name={routes.USER_PROFILE}
+        component={UserProfileScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );

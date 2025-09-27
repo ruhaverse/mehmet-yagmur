@@ -7,6 +7,7 @@ import ChatRoomScreen from "../screens/ChatRoomScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 import ChatTestScreen from "../screens/ChatTestScreen";
 import AddNewFriendScreen from "../screens/AddNewFriendScreen";
+import TestScreen from "../screens/TestScreen";
 
 export default function MessagesNavigator() {
   const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ export default function MessagesNavigator() {
         name={routes.Add_NEW_FRIEND}
         component={AddNewFriendScreen}
       />
+      <Stack.Screen name="Test" component={TestScreen} />
 
       {/* <Stack.Screen name="ChatTest" component={ChatTestScreen} /> */}
     </Stack.Navigator>
