@@ -32,6 +32,7 @@ import SwapScreen from './screens/SwapScreen.tsx';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 import * as Sentry from '@sentry/react-native';
+import axios from 'axios';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,37 @@ Sentry.init({
   dsn: 'https://your-dsn-url@sentry.io/project-id',
   tracesSampleRate: 1.0,
 });
+
+// Backend base URL
+const backendBaseUrl = 'http://localhost:3000';
+
+// Example function to upload an image
+const uploadImage = async (imageData) => {
+  try {
+    const response = await axios.post(`${backendBaseUrl}/upload`, imageData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Image uploaded successfully:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    throw error;
+  }
+};
+
+// Example function to fetch images
+const fetchImages = async () => {
+  try {
+    const response = await axios.get(`${backendBaseUrl}/images`);
+    console.log('Fetched images:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching images:', error);
+    throw error;
+  }
+};
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
