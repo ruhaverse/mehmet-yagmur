@@ -5,10 +5,7 @@ import App from '../App.js';
 
 describe('App Component', () => {
   it('renders correctly', async () => {
-    let tree: ReactTestRenderer.ReactTestRenderer | null = null;
-    await ReactTestRenderer.act(() => {
-      tree = ReactTestRenderer.create(<App />);
-    });
+    const tree = ReactTestRenderer.create(<App />); // Ensure 'tree' is properly initialized
     expect(tree?.toJSON?.()).toMatchSnapshot();
   });
 });

@@ -45,7 +45,7 @@ Sentry.init({
 const backendBaseUrl = 'http://localhost:3000';
 
 // Example function to upload an image
-const uploadImage = async (imageData) => {
+const uploadImage = async (imageData: File) => {
   try {
     const response = await axios.post(`${backendBaseUrl}/upload`, imageData, {
       headers: {

@@ -1,6 +1,7 @@
 # Mehmet Yagmur Backend Infrastructure
 
 ## Overview
+
 This repository contains the backend infrastructure for the Mehmet Yagmur project. It is designed to be modular, scalable, and easy to extend. The current setup includes the following components:
 
 - **PostgreSQL**: For structured data.
@@ -10,6 +11,7 @@ This repository contains the backend infrastructure for the Mehmet Yagmur projec
 - **API Gateway**: To route requests to the appropriate microservices.
 
 ## Project Structure
+
 ```
 mehmet-yagmur/
 ├── docker-compose.yml       # Docker Compose file to manage services
@@ -22,26 +24,31 @@ mehmet-yagmur/
 ## Getting Started
 
 ### Prerequisites
+
 - Docker and Docker Compose installed on your machine.
 
 ### Setup
+
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/ruhaverse/mehmet-yagmur.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
    cd mehmet-yagmur
    ```
 
-2. Start all services using Docker Compose:
-   ```bash
-   docker-compose up -d
-   ```
+3. Install dependencies:
 
-3. Verify that all services are running:
    ```bash
-   docker ps
+   npm install
    ```
 
 ### API Gateway Routes
+
 The API Gateway routes requests to the following microservices:
 
 | Path            | Target Service            |

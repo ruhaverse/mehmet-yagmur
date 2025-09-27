@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@react-native/metro-config": "^0.76.0",
     "@react-navigation/native": "^7.1.17",
     "@react-navigation/native-stack": "^7.3.26",
     "@react-navigation/stack": "^7.4.8",
@@ -18,15 +19,10 @@
     "morgan": "^1.10.1",
     "neo4j-driver": "^5.28.2",
     "postcss": "^8.5.6",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-native": {
-      "project": {
-        "android": {
-          "sourceDir": "MehmetYagmurApp/android"
-        }
-      }
-    },
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.72.0",
+    "react-native-gesture-handler": "^2.28.0",
     "react-native-paper": "^5.14.5",
     "react-native-reanimated": "^4.1.2",
     "react-native-toast-message": "^2.3.3",

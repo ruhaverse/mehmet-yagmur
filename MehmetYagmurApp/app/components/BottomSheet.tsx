@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useEffect, useImperativeHandle } from 'react';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { Gesture, GestureDetector, GestureUpdateEvent } from 'react-native-gesture-handler';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -9,6 +9,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import { PanGestureHandlerEventPayload } from 'react-native-gesture-handler';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -49,8 +50,8 @@ const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
       .onStart(() => {
         context.value = { y: translateY.value };
       })
-      .onUpdate((event) => {
-        translateY.value = event.translationY + context.value.y;
+      .onUpdate((event: GestureUpdateEvent<PanGestureHandlerEventPayload>) => {
+        translateY.value = (event as PanGestureHandlerEventPayload).translationY + context.value.y;
         translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y);
       })
       .onEnd(() => {
