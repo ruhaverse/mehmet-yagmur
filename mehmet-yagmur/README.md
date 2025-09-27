@@ -53,16 +53,34 @@ The API Gateway routes requests to the following microservices:
 | `/media`        | `media-service:3005`      |
 | `/notification` | `notification-service:3006`|
 
+## Recent Updates
+
+### Integrated Screens
+
+- `TestScreen` added to `MessagesNavigator`.
+- `SentRequests` added to `ActivityNavigator`.
+
+### Backend Validation
+
+- All backend services (`auth-service`, `feed-service`, `media-service`, `notification-service`, `post-service`, `user-service`) were validated and confirmed to be error-free.
+
+### GitHub Push
+
+- All recent changes have been successfully pushed to the `main` branch.
+
 ## Future Enhancements
+
 - **Elasticsearch**: For advanced search capabilities.
 - **Cassandra**: For distributed data management.
 - **InfluxDB**: For time-series data.
 - **GraphQL**: To simplify API queries.
 
 ## Contribution Guidelines
+
 - Follow the established coding standards.
 - Commit only source files; avoid committing `node_modules` or other generated files.
 - Use `.env` files for environment-specific configurations.
 
 ## Contact
+
 For any questions or issues, please contact the repository maintainer.
