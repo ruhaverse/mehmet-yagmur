@@ -57,3 +57,60 @@ The backend can be deployed using Docker Compose. Use the following command to s
 ## Contact
 
 For any questions or issues, please contact the project maintainer.
+
+## New Features and Integrations
+
+### Frontend Components
+
+The following components and screens have been integrated into the project:
+
+1. **Components**:
+   - `HeaderWithBackArrow`
+   - `Separator`
+   - `TabNavigation`
+   - `Screen`
+   - Various button components (`Button`, `ButtonText`, `IconButton`)
+   - List and card components (`ListItem`, `Card`, `SwapCard`)
+   - Comment and message components (`CommentItem`, `MessageItem`)
+
+2. **Screens**:
+   - `LoginScreen`
+   - `ProfileScreen`
+   - `SettingsScreen`
+   - `SwapScreen`
+   - `MediaScreen`
+   - `CommentsScreen`
+   - `StoryViewScreen`
+   - `ReelPlayerScreen`
+
+3. **Navigation**:
+   - `AppNavigator`
+   - `AuthNavigator`
+   - `GroupNavigator`
+   - `NewsFeedNavigator`
+
+### Backend Updates
+
+The backend has been updated to support the following features:
+
+1. **Swap Feature**:
+   - Added endpoints to handle item swapping between users.
+   - Integrated with `Post Service` and `Notification Service` for seamless user experience.
+
+2. **Chat Feature**:
+   - Added real-time chat functionality using WebSocket.
+   - Integrated with `Auth Service` for user authentication.
+
+3. **Media Uploads**:
+   - Enhanced `Media Service` to support new file types and larger uploads.
+
+4. **Notifications**:
+   - Updated `Notification Service` to handle new event types (e.g., swaps, chats).
+
+### Testing (New Features)
+
+All new features have been tested using Jest and Supertest. To run the tests, use the following command:
+
+```bash
+npx jest
+```
