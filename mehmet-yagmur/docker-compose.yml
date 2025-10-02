@@ -8,11 +8,13 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+
   redis:
     image: redis:latest
     container_name: redis
     ports:
       - "6379:6379"
+
   postgres:
     image: postgres:17
     container_name: postgres
@@ -24,6 +26,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
   neo4j:
     image: neo4j:5
     container_name: neo4j
