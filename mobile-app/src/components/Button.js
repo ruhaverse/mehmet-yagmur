@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
 
 import colors from '../config/colors';
 import ButtonText from './ButtonText';
 
-export default function AppButton({
+export default memo(function AppButton({
   title,
   onPress,
   color = colors.iondigoDye,
@@ -26,7 +26,7 @@ export default function AppButton({
       </ButtonText>
     </TouchableOpacity>
   );
-}
+});
 
 const styles = StyleSheet.create({
   button: {

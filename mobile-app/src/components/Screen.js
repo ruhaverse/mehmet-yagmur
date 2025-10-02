@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-export default function Screen({ children }) {
+export default memo(function Screen({ children }) {
   return <View style={styles.container}>{children}</View>;
-}
+});
 
 const styles = StyleSheet.create({
   container: {
