@@ -8,7 +8,9 @@
     "start": "react-native start",
     "lint": "eslint .",
     "test": "vitest",
-    "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle"
+    "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle",
+    "build:android": "cd android && ./gradlew clean && ./gradlew assembleRelease",
+    "build:bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/"
   },
   "dependencies": {
     "@react-native-community/netinfo": "^11.4.1",
