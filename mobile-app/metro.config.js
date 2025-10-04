@@ -13,5 +13,16 @@ module.exports = {
         inlineRequires: true,
       },
     }),
+    minifierConfig: {
+      ecma: 8,
+      keep_fnames: true,
+      mangle: {
+        keep_fnames: true,
+      },
+    },
+  },
+  resolver: {
+    assetExts: ['bin', 'txt', 'jpg', 'png', 'json', 'ttf', 'otf', 'woff', 'woff2'],
+    sourceExts: ['js', 'json', 'ts', 'tsx', 'jsx'],
   },
 };
