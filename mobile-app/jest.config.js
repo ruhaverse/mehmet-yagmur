@@ -1,9 +1,22 @@
 module.exports = {
-  preset: 'ts-jest',
+  preset: 'react-native',
   testEnvironment: 'node',
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', { tsconfig: '/workspaces/mehmet-yagmur/shareuptime-social/backend/auth-service/tsconfig.json' }],
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
-  extensionsToTreatAsEsm: ['.ts'],
-  roots: ['<rootDir>/shareuptime-social/backend/auth-service/test'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(react-native|@react-native|react-native-gesture-handler|@babel|react-native/jest|react-native-web|react-native-config|react-test-renderer|@expo|expo)/)',
+  ],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  globals: {
+    'ts-jest': {
+      babelConfig: '<rootDir>/babel.config.js',
+    },
+  },
+  moduleNameMapper: {
+    '^react-native$': 'react-native-web',
+    '^.+\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
 };

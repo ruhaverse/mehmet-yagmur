@@ -1,83 +1,97 @@
-# Mehmet Yagmur Backend Infrastructure
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-## Overview
+# Getting Started
 
-This repository contains the backend infrastructure for the Mehmet Yagmur project. It is designed to be modular, scalable, and easy to extend. The current setup includes the following components:
+> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-- **PostgreSQL**: For structured data.
-- **MongoDB**: For unstructured data like content and media.
-- **Redis**: For caching and session management.
-- **Neo4j**: For social graph relationships.
-- **API Gateway**: To route requests to the appropriate microservices.
+## Step 1: Start Metro
 
-## Project Structure
+First, you will need to run **Metro**, the JavaScript build tool for React Native.
 
-```plaintext
-mehmet-yagmur/
-├── docker-compose.yml       # Docker Compose file to manage services
-├── api-gateway/             # API Gateway configuration
-│   └── config.json          # Routes for microservices
-├── auth-service/            # Handles user authentication and authorization
-├── user-service/            # Manages user profiles and related data
-├── post-service/            # Handles user posts and interactions
-├── feed-service/            # Generates and serves user feeds
-├── media-service/           # Manages media uploads and storage
-├── notification-service/    # Sends notifications to users
-├── README.md                # Project documentation
-└── ... (other microservices and configurations)
+To start the Metro dev server, run the following command from the root of your React Native project:
+
+```sh
+# Using npm
+npm start
+
+# OR using Yarn
+yarn start
 ```
 
-## Prerequisites
+## Step 2: Build and run your app
 
-- Docker and Docker Compose installed on your machine.
+With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
-## Setup
+### Android
 
-1. Clone the repository:
+```sh
+# Using npm
+npm run android
 
-   ```bash
-   git clone https://github.com/ruhaverse/mehmet-yagmur.git
-   cd mehmet-yagmur
-   ```
+# OR using Yarn
+yarn android
+```
 
-2. Start all services using Docker Compose:
+### iOS
 
-   ```bash
-   docker-compose up -d
-   ```
+For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
 
-3. Verify that all services are running:
+The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
 
-   ```bash
-   docker ps
-   ```
+```sh
+bundle install
+```
 
-## API Gateway Routes
+Then, and every time you update your native dependencies, run:
 
-The API Gateway routes requests to the following microservices:
+```sh
+bundle exec pod install
+```
 
-| Path            | Target Service            |
-|-----------------|---------------------------|
-| `/auth`         | `auth-service:3001`       |
-| `/user`         | `user-service:3002`       |
-| `/post`         | `post-service:3003`       |
-| `/feed`         | `feed-service:3004`       |
-| `/media`        | `media-service:3005`      |
-| `/notification` | `notification-service:3006`|
+For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
-## Future Enhancements
+```sh
+# Using npm
+npm run ios
 
-- **Elasticsearch**: For advanced search capabilities.
-- **Cassandra**: For distributed data management.
-- **InfluxDB**: For time-series data.
-- **GraphQL**: To simplify API queries.
+# OR using Yarn
+yarn ios
+```
 
-## Contribution Guidelines
+If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
-- Follow the established coding standards.
-- Commit only source files; avoid committing `node_modules` or other generated files.
-- Use `.env` files for environment-specific configurations.
+This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
-## Contact
+## Step 3: Modify your app
 
-For any questions or issues, please contact the repository maintainer.
+Now that you have successfully run the app, let's make changes!
+
+Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+
+When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+
+- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
+- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+
+## Congratulations! :tada:
+
+You've successfully run and modified your React Native App. :partying_face:
+
+### Now what?
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
+- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+
+# Troubleshooting
+
+If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Learn More
+
+To learn more about React Native, take a look at the following resources:
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
