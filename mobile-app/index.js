@@ -1,4 +1,13 @@
-import { AppRegistry } from 'react-native';
-import App from './src/navigation/AppNavigator.js';
+/**
+ * @format
+ */
 
-AppRegistry.registerComponent('MainApp', () => App);
+import 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+import { AppRegistry } from 'react-native';
+import App from './App.js';
+import { name as appName } from './app.json';
+
+enableScreens();
+
+AppRegistry.registerComponent(appName, () => App);
