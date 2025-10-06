@@ -78,6 +78,7 @@ android {
 
     namespace "com.mehmetyagmurapp"
     defaultConfig {
+        // applicationId kontrol edildi ve güncellendi
         applicationId "com.mehmetyagmurapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -85,6 +86,10 @@ android {
         versionName "1.0.0"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+
+        // BuildConfig sınıfına özel alanlar eklendi
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true"
+        buildConfigField "boolean", "IS_HERMES_ENABLED", "true"
     }
     signingConfigs {
         debug {
@@ -123,4 +128,13 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Added Flipper dependency for debugging
+    implementation 'com.facebook.flipper:flipper:0.125.0'
+    implementation 'com.facebook.flipper:flipper-network-plugin:0.125.0'
+    implementation 'com.facebook.flipper:flipper-fresco-plugin:0.125.0'
+
+    // Eksik bağımlılıklar eklendi
+    implementation 'com.facebook.react:react-native:0.71.0'
+    implementation 'com.facebook.soloader:soloader:0.10.1'
 }
