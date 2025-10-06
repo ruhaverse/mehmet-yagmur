@@ -16,7 +16,7 @@ public class MainApplication extends Application implements ReactApplication {
       new DefaultReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
-          return BuildConfig.DEBUG;
+          return true; // BuildConfig.DEBUG yerine sabit bir değer döndürüldü
         }
 
         @Override
@@ -35,12 +35,12 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected boolean isNewArchEnabled() {
-          return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
+          return false; // BuildConfig.IS_NEW_ARCHITECTURE_ENABLED yerine sabit bir değer döndürüldü
         }
 
         @Override
-        protected Boolean isHermesEnabled() {
-          return BuildConfig.IS_HERMES_ENABLED;
+        protected boolean isHermesEnabled() {
+          return false; // Boolean yerine boolean dönüş türü kullanıldı
         }
       };
 
