@@ -10,6 +10,8 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/store';
+import { ShareUpTimeColors } from '../theme/ShareUpTimeTheme';
+import TimePostComponent from '../components/TimePostComponent';
 
 interface HomeScreenProps {
   navigation: any;

@@ -1,6 +1,6 @@
 /**
- * Mehmet Yağmur Mobile App
- * Modern React Native App with Navigation & Redux
+ * ShareUpTime - Social Media App
+ * Time-focused social platform with modern React Native
  *
  * @format
  */
