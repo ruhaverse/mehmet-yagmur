@@ -1,0 +1,71 @@
+name: Build MehmetYagmurApp APK
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'MehmetYagmurApp/**' ]
+  pull_request:
+    branches: [ main ]
+    paths: [ 'MehmetYagmurApp/**' ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: MehmetYagmurApp/package-lock.json
+        
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+      
+    - name: Install dependencies
+      working-directory: ./MehmetYagmurApp
+      run: npm install --legacy-peer-deps
+      
+    - name: Create bundle directory
+      working-directory: ./MehmetYagmurApp
+      run: mkdir -p android/app/src/main/assets
+      
+    - name: Build React Native bundle
+      working-directory: ./MehmetYagmurApp
+      run: npm run build
+        
+    - name: Build Release APK
+      working-directory: ./MehmetYagmurApp
+      run: |
+        cd android
+        chmod +x ./gradlew
+        ./gradlew clean
+        ./gradlew assembleRelease
+        
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: mehmet-yagmur-app-release
+        path: MehmetYagmurApp/android/app/build/outputs/apk/release/app-release.apk
+        
+    - name: Create Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: mehmet-yagmur-v1.0.${{ github.run_number }}
+        name: Mehmet Yağmur App v1.0.${{ github.run_number }}
+        files: MehmetYagmurApp/android/app/build/outputs/apk/release/app-release.apk
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
