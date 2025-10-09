@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import NewsFeedNavigator from './NewsFeedNavigator';
 import GroupNavigator from './GroupNavigator';
 import AuthNavigator from './AuthNavigator';
+import ProfileNavigator from './ProfileNavigator';
 
 // Screens
 import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import MediaScreen from '../screens/MediaScreen';
@@ -99,7 +99,7 @@ export default function AppNavigator() {
       />
       <Tab.Screen 
         name="Profile" 
-        component={ProfileScreen}
+        component={ProfileNavigator}
         options={{ title: 'Profil' }}
       />
       <Tab.Screen 
