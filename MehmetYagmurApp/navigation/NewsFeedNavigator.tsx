@@ -1,13 +1,15 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import NewsFeedScreen from '../screens/NewsFeedScreen.js';
+import { createStackNavigator } from '@react-navigation/stack';
+import NewsFeedScreen from '../screens/NewsFeedScreen';
+import AddPostScreen from '../screens/AddPostScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function NewsFeedNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="NewsFeed" component={NewsFeedScreen} />
+      <Stack.Screen name="AddPost" component={AddPostScreen} />
     </Stack.Navigator>
   );
 }
