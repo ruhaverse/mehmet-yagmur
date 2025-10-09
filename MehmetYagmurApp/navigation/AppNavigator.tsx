@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { ShareUpTimeColors } from '../theme/ShareUpTimeTheme';
 import NewsFeedNavigator from './NewsFeedNavigator';
 import GroupNavigator from './GroupNavigator';
 import AuthNavigator from './AuthNavigator';
@@ -48,7 +47,7 @@ export default function AppNavigator() {
 
           return <Icon name={iconName || 'home'} size={size} color={color} />;
         },
-        tabBarActiveTintColor: ShareUpTimeColors.primary, // ShareUpTime brand color
+        tabBarActiveTintColor: '#2196F3', // Orijinal mavi renk
         tabBarInactiveTintColor: 'gray',
         headerShown: true,
         headerStyle: {
