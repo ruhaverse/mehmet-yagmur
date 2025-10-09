@@ -8,6 +8,8 @@ import {
   useColorScheme,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../redux/store';
 
 interface HomeScreenProps {
   navigation: any;
@@ -15,6 +17,9 @@ interface HomeScreenProps {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const isDarkMode = useColorScheme() === 'dark';
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+  const posts = useSelector((state: RootState) => state.posts);
 
   const styles = StyleSheet.create({
     container: {
@@ -73,6 +78,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           <Text style={styles.title}>Mehmet Yağmur</Text>
           <Text style={styles.subtitle}>
             Modern React Native{'\n'}Mobile Application
+          </Text>
+          <Text style={styles.subtitle}>
+            📊 Redux Store Entegre Edildi
           </Text>
         </View>
 
