@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -8,7 +9,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'Feed Service is running' });
 });
 
-const PORT = 3104;
+const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => {
   console.log(`Feed Service running on port ${PORT}`);
 });

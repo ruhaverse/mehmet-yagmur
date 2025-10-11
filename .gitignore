@@ -1,1 +1,72 @@
-node_modules
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.bak
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+build/
+dist/
+out/
+.next/
+*.log
+
+# Android
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+local.properties
+.gradle/
+.cxx/
+*.hprof
+captures/
+android/app/release/
+android/app/debug/
+android/.gradle/
+**/android/build/
+**/android/app/build/
+
+# iOS
+*.ipa
+*.xcuserstate
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+DerivedData/
+*.hmap
+*.ipa
+Pods/
+ios/build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker
+.docker/
+
+# OS
+Thumbs.db
