@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '20'
         cache: 'npm'
-        cache-dependency-path: mobile-app/package-lock.json
+        cache-dependency-path: MehmetYagmurApp/package-lock.json
         
     - name: Setup Java
       uses: actions/setup-java@v4
@@ -32,27 +32,30 @@ jobs:
       uses: android-actions/setup-android@v3
       
     - name: Install dependencies
-      working-directory: ./mobile-app
-      run: npm ci
+      working-directory: ./MehmetYagmurApp
+      run: npm install --legacy-peer-deps
       
-    - name: Create bundle
-      working-directory: ./mobile-app
-      run: |
-        mkdir -p android/app/src/main/assets
-        npx metro build index.simple.js --platform android --dev false --out android/app/src/main/assets/index.android.bundle
+    - name: Create bundle directory
+      working-directory: ./MehmetYagmurApp
+      run: mkdir -p android/app/src/main/assets
+      
+    - name: Build React Native bundle
+      working-directory: ./MehmetYagmurApp
+      run: npm run build
         
     - name: Build Release APK
-      working-directory: ./mobile-app
+      working-directory: ./MehmetYagmurApp
       run: |
         cd android
         chmod +x ./gradlew
+        ./gradlew clean
         ./gradlew assembleRelease
         
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: release-apk
-        path: mobile-app/android/app/build/outputs/apk/release/app-release.apk
+        name: mehmet-yagmur-release-apk
+        path: MehmetYagmurApp/android/app/build/outputs/apk/release/app-release.apk
         
     - name: Create Release
       if: github.ref == 'refs/heads/main'
@@ -60,7 +63,7 @@ jobs:
       with:
         tag_name: v1.0.${{ github.run_number }}
         name: Mehmet Yağmur v1.0.${{ github.run_number }}
-        files: mobile-app/android/app/build/outputs/apk/release/app-release.apk
+        files: MehmetYagmurApp/android/app/build/outputs/apk/release/app-release.apk
         generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
