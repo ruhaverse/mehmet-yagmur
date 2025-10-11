@@ -16,6 +16,11 @@ export {
   FeatureIcons,
 } from './SocialIcons';
 
+// Time-Based Feature Components
+export { default as TimerDisplay } from './TimerDisplay';
+export { default as TimeChallengeCard } from './TimeChallengeCard';
+export { default as SchedulePostModal } from './SchedulePostModal';
+
 // Asset Types for TypeScript
 export interface AssetIconProps {
   size?: number;
