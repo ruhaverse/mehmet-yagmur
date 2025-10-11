@@ -1,28 +1,65 @@
 #!/bin/bash
 
-# Tüm backend servislerini başlatmak için script
+# Mehmet Yagmur - Start All Backend Services Script
+# This script starts all backend microservices in the background
 
-echo "Starting all backend services..."
+echo "🚀 Starting all backend services..."
+echo ""
 
-# API Gateway
-cd /workspaces/mehmet-yagmur/backend/services/api-gateway && npm install && npm start &
+# Get the directory where the script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SERVICES_DIR="$SCRIPT_DIR/backend/services"
 
-# Auth Service
-cd /workspaces/mehmet-yagmur/backend/services/auth-service && npm install && npm start &
+# Check if services directory exists
+if [ ! -d "$SERVICES_DIR" ]; then
+  echo "❌ Services directory not found: $SERVICES_DIR"
+  exit 1
+fi
 
-# User Service
-cd /workspaces/mehmet-yagmur/backend/services/user-service && npm install && npm start &
+# Array of services
+services=(
+  "api-gateway:3000"
+  "auth-service:3001"
+  "user-service:3002"
+  "post-service:3003"
+  "feed-service:3004"
+  "media-service:3005"
+  "notification-service:3006"
+)
 
-# Post Service
-cd /workspaces/mehmet-yagmur/backend/services/post-service && npm install && npm start &
+# Start each service
+for service_info in "${services[@]}"; do
+  IFS=':' read -r service port <<< "$service_info"
+  
+  echo "📦 Starting $service on port $port..."
+  
+  # Check if service directory exists
+  if [ ! -d "$SERVICES_DIR/$service" ]; then
+    echo "⚠️  Service directory not found: $service"
+    continue
+  fi
+  
+  # Start the service in background
+  cd "$SERVICES_DIR/$service"
+  PORT=$port npm start > /tmp/$service.log 2>&1 &
+  
+  # Store the PID
+  echo $! > /tmp/$service.pid
+  
+  echo "✅ $service started (PID: $!, Port: $port)"
+  echo "   Logs: /tmp/$service.log"
+  echo ""
+done
 
-# Feed Service
-cd /workspaces/mehmet-yagmur/backend/services/feed-service && npm install && npm start &
-
-# Media Service
-cd /workspaces/mehmet-yagmur/backend/services/media-service && npm install && npm start &
-
-# Notification Service
-cd /workspaces/mehmet-yagmur/backend/services/notification-service && npm install && npm start &
-
-echo "All services started."
+echo "✅ All services started!"
+echo ""
+echo "To stop services:"
+echo "  kill \$(cat /tmp/*-service.pid /tmp/api-gateway.pid 2>/dev/null)"
+echo ""
+echo "To view logs:"
+echo "  tail -f /tmp/[service-name].log"
+echo ""
+echo "To check service health:"
+echo "  curl http://localhost:3000/health  # API Gateway"
+echo "  curl http://localhost:3001/health  # Auth Service"
+echo "  # ... etc"
