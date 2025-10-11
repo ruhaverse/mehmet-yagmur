@@ -878,7 +878,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textTransform: 'capitalize',
   },
-  categoryText: {
+  secondaryCategoryText: {
     fontSize: 12,
     color: '#666',
   },
