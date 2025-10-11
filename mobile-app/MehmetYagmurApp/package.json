@@ -8,7 +8,13 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build:android": "cd android && ./gradlew assembleRelease",
+    "build:ios": "cd ios && xcodebuild -workspace ShareUpTime.xcworkspace -scheme ShareUpTime -configuration Release archive",
+    "bundle:analyze": "npx ts-node scripts/bundleAnalyzer.ts",
+    "type-check": "tsc --noEmit",
+    "clean": "react-native clean-project-auto",
+    "postinstall": "npx react-native setup-ios-permissions && npx pod-install ios"
   },
   "dependencies": {
     "react": "^18.2.0",
