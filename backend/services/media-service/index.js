@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -8,7 +9,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'Media Service is running' });
 });
 
-const PORT = 3007;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
   console.log(`Media Service running on port ${PORT}`);
 });
